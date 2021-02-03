@@ -10,10 +10,15 @@ class UserProfile(models.Model):
     profile_pic = models.ImageField(upload_to="static/user_pictures/");
 
     def __str__(self):
+        # for _user in self.user.objects.all():
+        if (self.user.is_active):
+                return f"{self.user.username}";
+        else:
+            return None;
         return f"{self.pk} | {self.user.username}"
 
 class posts(models.Model):
-    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE);
+    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, editable=True,null=False,blank=False);
     heading = models.CharField(max_length=300);
     small_description = models.CharField(max_length=256);
     body = models.TextField();
