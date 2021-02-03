@@ -1,1 +1,3 @@
 ./apps/*/metafiles
+./apps/*/migrations
+./apps/*/__pycache__

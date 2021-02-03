@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path( '', views.RenderHome, name = "Home"),
-    path('post', include("apps.post.urls")),
+    path('posts/<int:index>', include("apps.post.urls")),
 ]

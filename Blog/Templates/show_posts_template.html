@@ -19,19 +19,7 @@
                 <p class="lead">{{post.small_description}}</p>
 
                 <p class="lead">
-                <form method="POST" id="project_id" action="/post">
-                    {% csrf_token %}    <!-- Tell the server we are sending the data through the tocken -->
-                                    <!-- We need this when we are using method post -->
-                    <button 
-                    class="btn btn-primary btn-lg"
-                    name="post"
-                    value="{{post}}"
-                    role="submit"
-                    form="project_id">
-                    Read more
-                    </button>
-                </form>
-                    
+                <a class="btn btn-primary btn-lg" href="/posts/{{post.id}}" role="button">Learn more</a>   
                 </p>
             </div>
         </div>
