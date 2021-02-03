@@ -1,0 +1,43 @@
+<!-- this is a template for all the posts in home page -->
+
+{% extends 'header_template.html' %}
+
+{% load static %} 
+{% block title_block %} Techuo {% endblock title_block %}
+
+{% block content_block %} 
+
+{% for post in posts %}
+    <div class="jumbotron">
+        
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-thumbnail" alt="Responsive image" src="{{post.image.name}}" /> 
+            </div>
+            <div class="col-md-auto">
+                <h1 class="display-4">{{post.heading}}</h1>
+                <p class="lead">{{post.small_description}}</p>
+
+                <p class="lead">
+                <form method="POST" id="project_id" action="/post">
+                    {% csrf_token %}    <!-- Tell the server we are sending the data through the tocken -->
+                                    <!-- We need this when we are using method post -->
+                    <button 
+                    class="btn btn-primary btn-lg"
+                    name="post"
+                    value="{{post}}"
+                    role="submit"
+                    form="project_id">
+                    Read more
+                    </button>
+                </form>
+                    
+                </p>
+            </div>
+        </div>
+        
+    </div>
+{% endfor %}
+
+
+{% endblock content_block %}
