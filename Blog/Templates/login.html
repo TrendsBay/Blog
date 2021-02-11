@@ -1,0 +1,24 @@
+{% extends 'header_template.html' %}
+
+{% block title_block %} Techuo {% endblock title_block %}
+
+{% block content_block %} 
+
+
+<form id="login" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="email">User Name:</label>
+      <input type="text" name="username" class="form-control" placeholder="User Name" value="{{username}}" id="login">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" value="{{password}}" name="password" class="form-control" placeholder="Enter password" id="login">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form> 
+
+  <p>{{error}}</p>
+{% endblock content_block %}
