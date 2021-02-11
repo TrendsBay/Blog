@@ -18,7 +18,7 @@ class UserProfile(models.Model):
         return f"{self.pk} | {self.user.username}"
 
 class posts(models.Model):
-    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, editable=True,null=False,blank=False);
+    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE);
     heading = models.CharField(max_length=300);
     small_description = models.CharField(max_length=256);
     body = models.TextField();
